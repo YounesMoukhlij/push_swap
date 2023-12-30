@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: younesmoukhlij <younesmoukhlij@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 10:14:12 by youmoukh          #+#    #+#             */
-/*   Updated: 2023/12/30 21:04:54 by youmoukh         ###   ########.fr       */
+/*   Updated: 2023/12/30 23:46:49 by younesmoukh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,17 @@ typedef struct s_stack_ps
 int			main(int ac, char **av);
 char		**ft_parsing(int ac, char **av);
 int			ft_arguments_check(char **s, int ac);
-//char		*ft_strjoin_helper(char *s1, char *s2);
+
 long		ft_atoi(char *s);
-char		**ft_split(int ac, char **av);
+char		**ft_split(char *s);
 void		*ft_free_memory(char **string);
-char		*ft_strjoin(char *r, char *s1, char *s2);
+char		*ft_strjoin(int size, char **strs);
 int			ft_strlen(char *s);
 void		ft_error_mssg(void);
 t_stack_ps	*stack_is_sorted(t_stack_ps *a);
 t_stack_ps	*sort_the_stack(t_stack_ps *a);
 char		*copy_to_string(char **av, char *res, int ac);
+
+
+int	ft_length(char **str, int size);
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: younesmoukhlij <younesmoukhlij@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 10:15:21 by youmoukh          #+#    #+#             */
-/*   Updated: 2023/12/30 21:06:26 by youmoukh         ###   ########.fr       */
+/*   Updated: 2023/12/30 23:46:32 by younesmoukh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	*ft_create_word(char *s)
 	return (r);
 }
 
-char	**ft_split_helper(char *s)
+char	**ft_split(char *s)
 {
 	int		i;
 	char	**res;
@@ -77,24 +77,3 @@ char	**ft_split_helper(char *s)
 	return (res);
 }
 
-char	**ft_split(int ac, char **av)
-{
-	int		i;
-	char	*r1;
-
-	i = 0;
-	while (i < ac - 1)
-	{
-		r1 = ft_strjoin(r1, av[i], av[i + 1]);
-		i++;
-	}
-	return (ft_split_helper(r1));
-}
-
-// int main(int ac, char **av)
-// {
-// 	int i = 0;
-// 	char **r = ft_split(ac, av);
-// 	while (r[i])
-// 		printf("%s\n", r[i++]);
-// }

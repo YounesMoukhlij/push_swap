@@ -3,50 +3,73 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: younesmoukhlij <younesmoukhlij@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 20:53:58 by youmoukh          #+#    #+#             */
-/*   Updated: 2023/12/30 21:00:46 by youmoukh         ###   ########.fr       */
+/*   Updated: 2023/12/30 23:44:59 by younesmoukh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static char	*ft_add(char *r, char *s1, char *s2)
+int	ft_length(char **str, int size)
 {
 	int	i;
-	int	j;
+	int	l;
 
 	i = 0;
-	j = 0;
-	while (s1[i])
+	l = 0;
+	while (i < size)
 	{
-		r[i] = s1[i];
+		l += ft_strlen(str[i]);
+		if (i < size - 1)
+			l += 1;
 		i++;
 	}
-	while (s2[j])
-	{
-		r[i] = s2[j];
-		i++;
-		j++;
-	}
-	r[i] = '\0';
-	return (r);
+	return (l);
 }
 
-char	*ft_strjoin(char *r, char *s1, char *s2)
+char	*ft_strcat(char *dest, char *src)
 {
-	// if (!s1 && s2)
-	// 	return ((char *)s2);
-	// if (!s2 && s1)
-	// 	return ((char *)s1);
-	// if (!s1 && !s2)
-	// 	return (NULL);
-	if (!r)
+	int	i;
+	int	count;
+
+	count = 0;
+	i = 0;
+	while (dest[count] != '\0')
+		count++;
+	while (src[i] != '\0')
 	{
-		r = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-		if (!r)
-		return (NULL);
+		dest[count + i] = src[i];
+		i++;
 	}
-	return (ft_add(r, s1, s2));
+	dest[count + i] = '\0';
+	return (dest);
+}
+
+char	*ft_strjoin(int size, char **strs)
+{
+	char	*str;
+	int		i;
+
+	str = NULL;
+	i = 0;
+	if (size <= 0)
+	{
+		str = malloc(sizeof(char) * 1);
+		*str = '\0';
+		return (str);
+	}
+	str = malloc(sizeof(char) * ft_length(strs, size) + 1);
+	if (!str)
+		return (str);
+	str[i] = '\0';
+	while (i < size)
+	{
+		ft_strcat(str, strs[i]);
+		if (i < size - 1)
+			ft_strcat(str, " ");
+		i++;
+	}
+	return (str);
 }
