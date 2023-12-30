@@ -1,9 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pushswap_functions_0.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/30 10:14:38 by youmoukh          #+#    #+#             */
+/*   Updated: 2023/12/30 20:39:02 by youmoukh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_error_mssg(void)
 {
-	write(1, "Error Try Again\n", 16);
+	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
+}
+
+void	*ft_free_memory(char **string)
+{
+	int	i;
+
+	i = 0;
+	while (string[i])
+	{
+		free (string[i]);
+		i++;
+	}
+	free (string);
+	return (NULL);
 }
 
 long	ft_atoi(char *s)
@@ -36,6 +62,8 @@ int	ft_strlen(char *s)
 {
 	int	i;
 
+	if (!s)
+		return (0);
 	i = 0;
 	while (s[i])
 		i++;

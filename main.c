@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/30 10:13:41 by youmoukh          #+#    #+#             */
+/*   Updated: 2023/12/30 20:32:58 by youmoukh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	main(int ac, char **av)
@@ -6,12 +18,10 @@ int	main(int ac, char **av)
 	t_stack_ps	*b;
 	char		**string_arg;
 
+	a = NULL;
+	b = NULL;
 	string_arg = ft_parsing(ac, av);
-	if (!a)
-		ft_error_mssg();
-	// gather_in_stack(&a, &string_arg);
-	// if (!stack_is_sorted)
-	// 	sort_stack(a);
-	// ft_free_stack(&a);
+	// if (!a)
+	// 	ft_error_mssg();
 	return (0);
 }

@@ -1,54 +1,52 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/30 20:53:58 by youmoukh          #+#    #+#             */
+/*   Updated: 2023/12/30 21:00:46 by youmoukh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int	getlen_for_strjoin(int ac, char **s)
-{
-	int	i;
-	int	len;
-
-	while (i < ac)
-	{
-		len += ft_strlen(s[i]);
-		if (i < ac - 1)
-			len += 1;
-		i++;
-	}
-	return (len);
-}
-
-char	*copy_to_string(char **av, char *res, int ac)
+static char	*ft_add(char *r, char *s1, char *s2)
 {
 	int	i;
 	int	j;
-	int	k;
 
 	i = 0;
-	k = 1;
-	while (k < ac - 1)
+	j = 0;
+	while (s1[i])
 	{
-		j = 0;
-		while (res[j])
-			j++;
-		while (av[k][i] != '\0')
-		{
-			res[j + i] = av[k][i];
-			if (i < ac - 1)
-				res[++i] = ' ';
-			i++;
-		}
+		r[i] = s1[i];
+		i++;
 	}
-	res[j + i] = '\0';
-	return (res);
+	while (s2[j])
+	{
+		r[i] = s2[j];
+		i++;
+		j++;
+	}
+	r[i] = '\0';
+	return (r);
 }
 
-char	*ft_strjoin(int ac,char **av)
+char	*ft_strjoin(char *r, char *s1, char *s2)
 {
-	char	*s;
-
-	if (ac == 1)
+	// if (!s1 && s2)
+	// 	return ((char *)s2);
+	// if (!s2 && s1)
+	// 	return ((char *)s1);
+	// if (!s1 && !s2)
+	// 	return (NULL);
+	if (!r)
+	{
+		r = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+		if (!r)
 		return (NULL);
-	s = malloc(getlen_for_strjoin(ac - 1, av) + 1);
-	if (!s)
-		return (NULL);
-	s[0] = '\0';
-	return (copy_to_string(av, s, ac - 1));
+	}
+	return (ft_add(r, s1, s2));
 }
