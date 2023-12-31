@@ -6,7 +6,7 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 10:14:38 by youmoukh          #+#    #+#             */
-/*   Updated: 2023/12/30 20:39:02 by youmoukh         ###   ########.fr       */
+/*   Updated: 2023/12/31 16:29:17 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_error_mssg(void)
 {
-	write(2, "Error\n", 6);
+	write(2, "Bhal gar3a \n", 12);
 	exit(EXIT_FAILURE);
 }
 
@@ -34,28 +34,25 @@ void	*ft_free_memory(char **string)
 
 long	ft_atoi(char *s)
 {
-	int		signe;
-	long	res;
+	int		num_signe;
+	long	resulat;
 
-	res = 0;
-	signe = 1;
-	while (*s == ' ' || *s == '\t' || *s == '\n' || *s == '\f'
-		|| *s == '\v' || *s == '\r')
+	resulat = 0;
+	num_signe = 1;
+	while (*s == ' ' || (*s >= 9 && *s <= 13))
 		s++;
 	if (*s == '-' || *s == '+')
 	{
 		if (*s == '-')
-			signe = -1;
+			num_signe = -1;
 		s++;
 	}
 	while (*s && (*s >= '0' && *s <= '9'))
 	{
-		res = res * 10 + (*s - 48);
+		resulat = resulat * 10 + (*s - '0');
 		s++;
 	}
-	if ((res * signe) > 2147483647 || (res * signe) < -2147483648)
-		ft_error_mssg();
-	return (res * signe);
+	return (resulat * num_signe);
 }
 
 int	ft_strlen(char *s)
@@ -68,4 +65,18 @@ int	ft_strlen(char *s)
 	while (s[i])
 		i++;
 	return (i);
+}
+
+int	ft_check_emptiness(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] && s[i] != ' ')
+			return (1);
+		i++;
+	}
+	return (0);
 }

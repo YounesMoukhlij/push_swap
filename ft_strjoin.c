@@ -3,72 +3,67 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: younesmoukhlij <younesmoukhlij@student.    +#+  +:+       +#+        */
+/*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 20:53:58 by youmoukh          #+#    #+#             */
-/*   Updated: 2023/12/30 23:44:59 by younesmoukh      ###   ########.fr       */
+/*   Updated: 2023/12/31 15:54:12 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_length(char **str, int size)
+int	ft_length(char **str, int ac)
 {
 	int	i;
 	int	l;
 
 	i = 0;
 	l = 0;
-	while (i < size)
+	while (i < ac - 1)
 	{
 		l += ft_strlen(str[i]);
-		if (i < size - 1)
+		if (i < ac - 2)
 			l += 1;
 		i++;
 	}
 	return (l);
 }
 
-char	*ft_strcat(char *dest, char *src)
+char	*copy_to_string(int ac, char *new, char *old, int *position)
 {
 	int	i;
-	int	count;
+	int	len;
 
-	count = 0;
 	i = 0;
-	while (dest[count] != '\0')
-		count++;
-	while (src[i] != '\0')
+	len = ft_strlen(new);
+	while (old[i] != '\0')
 	{
-		dest[count + i] = src[i];
+		new[len + i] = old[i];
 		i++;
 	}
-	dest[count + i] = '\0';
-	return (dest);
+	if (*position < ac - 2)
+	{
+		new[len + i] = ' ';
+		i++;
+	}
+	new[len + i] = '\0';
+	return (new);
 }
 
-char	*ft_strjoin(int size, char **strs)
+char	*ft_strjoin(int ac, char **av)
 {
 	char	*str;
 	int		i;
 
 	str = NULL;
 	i = 0;
-	if (size <= 0)
-	{
-		str = malloc(sizeof(char) * 1);
-		*str = '\0';
-		return (str);
-	}
-	str = malloc(sizeof(char) * ft_length(strs, size) + 1);
+	str = malloc(sizeof(char) * ft_length(av, ac) + 1);
 	if (!str)
 		return (str);
 	str[i] = '\0';
-	while (i < size)
+	while (i < ac - 1)
 	{
-		ft_strcat(str, strs[i]);
-		if (i < size - 1)
-			ft_strcat(str, " ");
+		copy_to_string(ac, str, av[i], &i);
 		i++;
 	}
 	return (str);

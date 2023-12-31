@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: younesmoukhlij <younesmoukhlij@student.    +#+  +:+       +#+        */
+/*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 10:13:41 by youmoukh          #+#    #+#             */
-/*   Updated: 2023/12/30 23:47:43 by younesmoukh      ###   ########.fr       */
+/*   Updated: 2023/12/31 16:31:46 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,15 @@
 
 int	main(int ac, char **av)
 {
-	// t_stack_ps	*a;
-	// t_stack_ps	*b;
+	t_stack_ps	*a;
+	t_stack_ps	*b;
 	char		**string_arg;
 
-	// a = NULL;
-	// b = NULL;
+	a = NULL;
+	b = NULL;
 	string_arg = ft_parsing(ac, av);
 	int i = 0;
 	while (string_arg[i])
-		printf("%s   ", string_arg[i++]);
-	// if (!a)
-	// 	ft_error_mssg();
+		printf("%ld\n", ft_atoi(string_arg[i++]));
 	return (0);
 }
