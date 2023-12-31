@@ -6,7 +6,7 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 10:14:38 by youmoukh          #+#    #+#             */
-/*   Updated: 2023/12/31 16:29:17 by youmoukh         ###   ########.fr       */
+/*   Updated: 2023/12/31 20:48:09 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_error_mssg(void)
 {
-	write(2, "Bhal gar3a \n", 12);
+	write(2, "ERROR\n", 12);
 	exit(EXIT_FAILURE);
 }
 
@@ -67,16 +67,18 @@ int	ft_strlen(char *s)
 	return (i);
 }
 
-int	ft_check_emptiness(char *s)
+void	clear_stack_linked_list(t_stack_ps **stack_a)
 {
-	int	i;
+	t_stack_ps	*current;
 
-	i = 0;
-	while (s[i])
+	if (!*stack_a)
+		return ;
+	current = *stack_a;
+	while (stack_a)
 	{
-		if (s[i] && s[i] != ' ')
-			return (1);
-		i++;
+		current = (*stack_a)->next;
+		free(*stack_a);
+		*stack_a = current;
 	}
-	return (0);
+	stack_a = NULL;
 }

@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   fill_out_stack.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/30 10:13:41 by youmoukh          #+#    #+#             */
-/*   Updated: 2023/12/31 20:49:51 by youmoukh         ###   ########.fr       */
+/*   Created: 2023/12/31 16:49:11 by youmoukh          #+#    #+#             */
+/*   Updated: 2023/12/31 19:59:20 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void code(void)
-// {
-// 	system("leaks push_swap");
-// }
-
-int	main(int ac, char **av)
+void	fill_out_stack(char **string_arg, t_stack_ps **stack_a)
 {
-	t_stack_ps	*stack_a;
-	t_stack_ps	*stack_b;
-	char		**string_arg;
+	int			i;
+	t_stack_ps	*current;
 
-	stack_a = NULL;
-	stack_b = NULL;
-	string_arg = ft_parsing(ac, av);
-	fill_out_stack(string_arg, &stack_a);
-	while (stack_a)
+	i = 0;
+	while (string_arg[i])
 	{
-		printf("%d\n", stack_a->nbr);
-		stack_a = stack_a->next;
+		current = new_linked_list(ft_atoi(string_arg[i]));
+		if (!*stack_a)
+			add_front_linked_list(stack_a, current);
+		else
+			add_back_linked_list(current, stack_a);
+		i++;
 	}
-	ft_free_memory(string_arg);
-	clear_stack_linked_list(&stack_a);
-	//atexit(code);
-	return (0);
 }

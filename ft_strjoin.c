@@ -6,28 +6,11 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 20:53:58 by youmoukh          #+#    #+#             */
-/*   Updated: 2023/12/31 15:54:12 by youmoukh         ###   ########.fr       */
+/*   Updated: 2023/12/31 20:08:14 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ft_length(char **str, int ac)
-{
-	int	i;
-	int	l;
-
-	i = 0;
-	l = 0;
-	while (i < ac - 1)
-	{
-		l += ft_strlen(str[i]);
-		if (i < ac - 2)
-			l += 1;
-		i++;
-	}
-	return (l);
-}
 
 char	*copy_to_string(int ac, char *new, char *old, int *position)
 {
@@ -50,21 +33,37 @@ char	*copy_to_string(int ac, char *new, char *old, int *position)
 	return (new);
 }
 
-char	*ft_strjoin(int ac, char **av)
+int	get_len_for_strjoin(char **string, int ac)
 {
-	char	*str;
-	int		i;
+	int	i;
+	int	l;
 
-	str = NULL;
-	i = 0;
-	str = malloc(sizeof(char) * ft_length(av, ac) + 1);
-	if (!str)
-		return (str);
-	str[i] = '\0';
-	while (i < ac - 1)
+	i = 1;
+	l = 0;
+	while (i <= ac)
 	{
-		copy_to_string(ac, str, av[i], &i);
+		l += ft_strlen(string[i]);
+		if (i < ac - 1)
+			l += 1;
 		i++;
 	}
-	return (str);
+	return (l);
+}
+
+char	*ft_strjoin(int ac, char **av)
+{
+	char	*new_str;
+	int		i;
+
+	i = 0;
+	new_str = malloc(sizeof(char) * get_len_for_strjoin(av + 1, ac - 1) + 1);
+	if (!new_str)
+		return (NULL);
+	new_str[i] = '\0';
+	while (i < ac - 1)
+	{
+		copy_to_string(ac, new_str, av[i], &i);
+		i++;
+	}
+	return (new_str);
 }
