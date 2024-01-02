@@ -6,7 +6,7 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 10:14:38 by youmoukh          #+#    #+#             */
-/*   Updated: 2023/12/31 20:48:09 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/02 19:39:22 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_error_mssg(void)
 {
-	write(2, "ERROR\n", 12);
+	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
 

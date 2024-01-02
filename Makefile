@@ -6,17 +6,24 @@
 #    By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/30 10:14:53 by youmoukh          #+#    #+#              #
-#    Updated: 2023/12/31 20:27:49 by youmoukh         ###   ########.fr        #
+#    Updated: 2024/01/02 20:51:07 by youmoukh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC =	main.c \
 		ft_split.c \
-		ft_strjoin.c \
+		swap_move.c \
 		ft_parsing.c \
+		ft_strjoin.c  \
+		rotate_move.c  \
 		fill_out_stack.c \
+		sort_simple_three.c \
+		reverse_rotate_move.c \
 		pushswap_functions_0.c \
 		pushswap_functions_1.c \
+		pushswap_functions_2.c \
+		# sort_simple_five.c \
+		# sort_big_stacks.c \
 
 OBJ =	${SRC:.c=.o}
 NAME =	push_swap

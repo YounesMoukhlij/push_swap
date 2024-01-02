@@ -6,7 +6,7 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 16:50:15 by youmoukh          #+#    #+#             */
-/*   Updated: 2023/12/31 20:01:01 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/01 19:46:31 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	add_back_linked_list(t_stack_ps *current, t_stack_ps **stack_a)
 {
 	if (!current || !stack_a)
 		return ;
+	if (!*stack_a)
+		add_front_linked_list(stack_a, current);
 	last_one_linked_list(*stack_a)->next = current;
 }
 
