@@ -6,7 +6,7 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 10:14:12 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/02 20:50:16 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/03 19:55:35 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 typedef struct s_stack_ps
 {
 	int					nbr;
+	int					index_in_stack;
 	struct s_stack_ps	*next;
 }	t_stack_ps;
 
@@ -67,4 +68,8 @@ void		sort_simple_three(int ac, t_stack_ps **stack_a);
 void		sort_big_stacks(t_stack_ps **stack_a, t_stack_ps **stack_b);
 void		sort_simple_five(t_stack_ps **stack_a, t_stack_ps **stack_b);
 int			check_is_sorted(t_stack_ps *stack);
+void		find_the_minimum_node(t_stack_ps **stack_a);
+// PUSH
+void		push_move_b(t_stack_ps **stack_a, t_stack_ps **stack_b);
+void		push_move_a(t_stack_ps **stack_a, t_stack_ps **stack_b);
 #endif

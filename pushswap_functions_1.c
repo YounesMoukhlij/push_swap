@@ -6,7 +6,7 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 16:50:15 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/01 19:46:31 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/03 15:23:50 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_stack_ps	*new_linked_list(int content)
 	if (!a)
 		return (NULL);
 	a->nbr = content;
+	a->index_in_stack = 0;
 	a->next = NULL;
 	return (a);
 }
