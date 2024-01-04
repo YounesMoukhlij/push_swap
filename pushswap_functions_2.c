@@ -6,7 +6,7 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 13:40:58 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/02 20:44:06 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/04 18:00:31 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,19 @@ int	check_is_sorted(t_stack_ps *stack_a)
 		(stack) = (stack)->next;
 	}
 	return (1);
+}
+
+t_stack_ps	*locate_the_node(t_stack_ps **stack, int i)
+{
+	t_stack_ps	*temp_head;
+	int			increment;
+
+	increment = 1;
+	temp_head = (*stack);
+	while (increment < i)
+	{
+		temp_head = temp_head->next;
+		increment++;
+	}
+	return (temp_head);
 }

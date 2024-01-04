@@ -6,7 +6,7 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 10:14:12 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/03 19:55:35 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/04 14:01:10 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 typedef struct s_stack_ps
 {
 	int					nbr;
+	int					positon;
 	int					index_in_stack;
 	struct s_stack_ps	*next;
 }	t_stack_ps;

@@ -130,7 +130,7 @@ if [ -s "$FICHERO" ];then
 while IFS= read -r line
 do
   if [[ $line == "Error" ]]; then
-  	printf "${GREEN}5.[OK] ${DEF_COLOR}\n";
+  	printf "${GREEN}5.[OK] ${DEF_COLOR}\n"; 4 1 3 2
   else
   	printf "${RED}5.[KO] ${DEF_COLOR}\n";
   	break

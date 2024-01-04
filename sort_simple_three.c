@@ -6,7 +6,7 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 14:36:47 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/02 19:42:57 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/04 16:10:48 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,15 @@ void	sort_simple_three(int ac, t_stack_ps **stack_a)
 	int	middle;
 	int	bottom;
 
+	if (check_is_sorted((*stack_a)) == 1)
+		return ;
 	if (ac == 3)
 		return (sort_two(stack_a));
 	top = (*stack_a)->nbr;
 	middle = (*stack_a)->next->nbr;
 	bottom = (*stack_a)->next->next->nbr;
 	if (top > middle && middle > bottom)
-	{
-		swap_a(stack_a);
-		reverse_rotate_a(stack_a);
-	}
+		return (swap_a(stack_a), reverse_rotate_a(stack_a));
 	else if (top < bottom && bottom > middle)
 		swap_a(stack_a);
 	else if (top > middle && top > bottom)
@@ -41,8 +40,5 @@ void	sort_simple_three(int ac, t_stack_ps **stack_a)
 	else if (middle > top && top > bottom)
 		reverse_rotate_a(stack_a);
 	else if (top < middle && middle > bottom)
-	{
-		swap_a(stack_a);
-		rotate_a(stack_a);
-	}
+		return (swap_a(stack_a), rotate_a(stack_a));
 }

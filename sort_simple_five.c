@@ -6,7 +6,7 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 20:45:35 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/03 21:14:23 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/04 15:19:03 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,41 +61,37 @@ void	find_the_minimum_node(t_stack_ps **stack_a)
 
 void	sort_simple_five(t_stack_ps **stack_a, t_stack_ps **stack_b)
 {
-	t_stack_ps	*tmp_head_a;
-	t_stack_ps	*tmp_head_b;
-	// int i = 0;
-	tmp_head_b = (*stack_b);
-	tmp_head_a = (*stack_a);
-	// while (i < 2)
-	// {
-		//get_0_back_to_index(stack_a, stack_b);
-		find_the_minimum_node(stack_a);
-		while ((*stack_a))
-		{
-			if ((*stack_a)->index_in_stack == 1)
-			{
-				push_move_b(stack_a, stack_b);
-			//	break ;
-			}
-			(*stack_a) = (*stack_a)->next;
-		}
-		(*stack_a) = tmp_head_a;
-	// 	i++;
-	// }
-	//get_0_back_to_index(stack_a, stack_b);
-	//push_move_b(stack_a, stack_b);
-	//printf("%p\n",(*stack_a)->next->next );
-	
-	//(*stack_a) = tmp_head_a;
-	while ((*stack_a))
+	int			i;
+	int			j;
+	t_stack_ps 	*tmp_head;
+
+	tmp_head = (*stack_a);
+	if (size_linked_list((*stack_a)) == 4)
+		i = 1;
+	else
+		i = 0;
+	while (i++ < 2)
 	{
-		printf("\033[32mnbr %d index %d\n\033[32m\n", (*stack_a)->nbr, (*stack_a)->index_in_stack);
-		(*stack_a) = (*stack_a)->next;
+		get_0_back_to_index(stack_a, stack_b);
+		find_the_minimum_node(stack_a);
+		while (tmp_head)
+		{
+			if (tmp_head->index_in_stack == 1)
+				j = tmp_head->positon;
+			tmp_head = tmp_head->next;
+		}
+		while ((*stack_a)->index_in_stack != 1)
+		{
+			if (j > 2)
+				reverse_rotate_a(stack_a);
+			else
+				rotate_a(stack_a);
+		}
+		push_move_b(stack_a, stack_b);
+		tmp_head = (*stack_a);
 	}
-	// printf("STACK B\n");
-	// while ((*stack_b))
-	// {
-	// 	printf("\033[32mnbr %d index %d\n\033[32m\n", (*stack_b)->nbr, (*stack_b)->index_in_stack);
-	// 	(*stack_b) = (*stack_b)->next;
-	// }
+	sort_simple_three(0, stack_a);
+	push_move_a(stack_a, stack_b);
+	if (size_linked_list((*stack_a)) == 4)
+		push_move_a(stack_a, stack_b);
 }
