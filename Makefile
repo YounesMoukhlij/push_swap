@@ -6,17 +6,17 @@
 #    By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/30 10:14:53 by youmoukh          #+#    #+#              #
-#    Updated: 2024/01/04 21:06:48 by youmoukh         ###   ########.fr        #
+#    Updated: 2024/01/06 19:21:58 by youmoukh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC =	main.c   \
-		ft_split.c\
-		swap_move.c\
-		push_move.c	\
-		ft_parsing.c \
-		ft_strjoin.c  \
-		rotate_move.c  \
+SRC =	main.c    \
+		ft_split.c \
+		swap_move.c \
+		push_move.c	 \
+		ft_parsing.c  \
+		ft_strjoin.c   \
+		rotate_move.c   \
 		fill_out_stack.c \
 		sort_big_stacks.c \
 		sort_simple_five.c \
@@ -25,6 +25,9 @@ SRC =	main.c   \
 		pushswap_functions_0.c\
 		pushswap_functions_1.c \
 		pushswap_functions_2.c  \
+		subsquence_algorithm.c   \
+		pushswap_functions_3.c    \
+		pushswap_functions_4.c     \
 
 OBJ =	${SRC:.c=.o}
 NAME =	push_swap
@@ -37,7 +40,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@cc $(OBJ) -o $(NAME)
-	@echo "\033[32m     RRRRRREADY !!!!\n\033[1;91m\t[*_!]\033[0m"
+	@echo "\033[32mRRRRRREADY !!!!\033[1;91m\t[*_!]\033[0m"
 
 clean :
 	@rm -rf $(OBJ)
@@ -46,5 +49,7 @@ fclean : clean
 	@rm -rf $(NAME)
 
 re : fclean all
+
+kkk  : all clean
 
 .PHONY : all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 16:50:15 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/04 15:11:36 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/06 17:56:23 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,19 @@
 
 t_stack_ps	*new_linked_list(int content)
 {
-	t_stack_ps	*a;
+	t_stack_ps	*stack;
 
-	a = malloc(sizeof(t_stack_ps));
-	if (!a)
+	stack = malloc(sizeof(t_stack_ps));
+	if (!stack)
 		return (NULL);
-	a->nbr = content;
-	a->index_in_stack = 0;
-	a->positon = 0;
-	a->next = NULL;
-	return (a);
+	stack->flag = 0;
+	stack->moves = 0;
+	stack->positon = 0;
+	stack->next = NULL;
+	stack->nbr = content;
+	stack->index_in_stack = 0;
+	stack->target_node = NULL;
+	return (stack);
 }
 
 int	size_linked_list(t_stack_ps *stack_a)

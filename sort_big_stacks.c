@@ -6,105 +6,83 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 20:45:54 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/04 21:18:21 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/06 21:14:51 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*full_fill_arr_with_1(t_stack_ps **stack_a)
+int	find_minimum_move(int *tab, int size)
 {
-	int	*arr;
-	int	size;
 	int	i;
+	int	min;
 
 	i = 0;
-	size = size_linked_list((*stack_a));
-	arr = malloc(sizeof(int) * size);
-	if (!arr)
-		return (arr);
-	while (i < size)
-		arr[i++] = 1;
-	return (arr);
+	while (size)
+	{
+		i = 0;
+		while (i < size)
+		{
+			if (tab[i + 1] > tab[i])
+				min = tab[i];
+			i++;
+		}
+		size--;
+	}
+	free(tab);
+	return (min);
 }
 
-int	*full_fill_arr_with_stack(t_stack_ps **stack_a)
+int	check_place_in_stacks(t_stack_ps *node_b, t_stack_ps *node_a, int size_a)
 {
-	t_stack_ps	*temp_head;
-	int			*arr;
-	int			size;
+	int	size_b;
+	
+	size_b = size_linked_list((*stack_b));
+
+	
+
+}
+
+int	gest_best_move(t_stack_ps **stack_b, t_stack_ps **stack_a)
+{
+	t_stack_ps	*tmp_head;
+	int			*tab;
 	int			i;
+	int			size;
+	int			best_move;
 
 	i = 0;
-	temp_head = (*stack_a);
-	size = size_linked_list((*stack_a));
-	arr = malloc(sizeof(int) * size);
-	if (!arr)
-		return (arr);
-	while ((*stack_a))
+	tmp_head = (*stack_b);
+	size = size_linked_list(tmp_head);
+	tab = malloc(sizeof(int) * size);
+	if (!tab)
+		return (0);
+	while (tmp_head)
 	{
-		arr[i++] = (*stack_a)->nbr;
-		(*stack_a) = (*stack_a)->next;
+		tab[i++] = (tmp_head)->moves + (tmp_head)->target_node->moves;
+		(tmp_head) = (tmp_head)->next;
 	}
-	(*stack_a) = temp_head;
-	return (arr);
+	best_move = find_minimum_move(tab, size);
+	tmp_head = (*stack_b);
+	while (tmp_head)
+	{
+		if (best_move == (tmp_head)->moves + (tmp_head)->target_node->moves)
+		{
+			check_place_in_stacks(tmp_head, tmp_head->target_node, size_linked_list(stack_a));
+			break ;
+		}
+		(tmp_head) = (tmp_head)->next;
+	}
+	return (best_move);
 }
 
-int	max(int *arr, int index)
+void	calculate_moves(t_stack_ps **stack_a, t_stack_ps **stack_b)
 {
-	int	i;
-	int	max;
+	int	best_move;
 
-	i = 0;
-	max = 0;
-	while (i < index)
-	{
-		if (arr[i] > max)
-			max = arr[i];
-		i++;
-	}
-	return (max);
-}
-void	subsquence_algorithm(t_stack_ps **stack, int *arr_1, int *arr_stack)
-{
-	int	size;
-	int	i;
-	int	j;
-	int	max_num;
-
-	i = 1;
-	j = 0;
-	size = size_linked_list(*stack);
-	while (i < size)
-	{
-		j = 0;
-		while (j < i)
-		{
-			if (arr_stack[i] > arr_stack[j] && arr_1[i] < arr_1[j] + 1)
-				arr_1[i] = arr_1[j] + 1;
-			j++;
-		}
-		i++;
-	}
-	max_num = max(arr_1, size) - 1;
-	//int last = 0;
-	i = 0;
-	int s = size;
-	while (s)
-	{
-		if (arr_1[s] == max_num)
-		{
-			printf("%d ", arr_1[s]);
-			max_num--;
-		}
-		s--;
-	}
-	printf("\n\n\n\n");
-	i = 0;
-	while (i < size)
-	{
-		printf("%d ", arr_1[i++]);
-	}
+	fill_moves(stack_a);
+	fill_moves(stack_b);
+	best_move = gest_best_move(stack_b, stack_a);
 }
 
 void	sort_big_stacks(t_stack_ps **stack_a, t_stack_ps **stack_b)
@@ -112,14 +90,29 @@ void	sort_big_stacks(t_stack_ps **stack_a, t_stack_ps **stack_b)
 	int		*arr_flaged_1;
 	int		*arr_same_as_stack_a;
 
-	(void)	stack_b;
 	arr_flaged_1 = full_fill_arr_with_1(stack_a);
 	arr_same_as_stack_a = full_fill_arr_with_stack(stack_a);
-	subsquence_algorithm(stack_a, arr_flaged_1, arr_same_as_stack_a);
+	subsquence_algo(stack_a, arr_flaged_1, arr_same_as_stack_a);
+	fill_out_stack_b(stack_a, stack_b);
+	set_connection_stack_a_b(stack_a, stack_b);
+	calculate_moves(stack_a, stack_b);
 }
 
-// int p = 0;
-// while (p < size)
-// {
-// 	printf("%d ", arr[p++]);
-// }
+int	find_min_node(t_stack_ps *stack)
+{
+	t_stack_ps	*temp;
+    int			min;
+	int			size;
+
+	size = size_linked_list((stack));
+	temp = (stack);
+	min = temp->nbr;
+	while (temp)
+	{
+		if (temp->nbr < min)
+			min = temp->nbr;
+		temp = temp->next;
+	}
+	printf("\n>>>>>>>>>>>>>>> min = [%d]\n", min);
+	return (min);
+}

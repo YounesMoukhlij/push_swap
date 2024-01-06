@@ -6,7 +6,7 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 13:40:58 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/04 18:00:31 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/05 21:29:35 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_stack_ps	*ft_beforelast(t_stack_ps *stack)
 {
 	if (!stack)
 		return (NULL);
-	while (stack->next && stack->next->next)
+	while (stack->next->next)
 		stack = stack->next;
 	return (stack);
 }
@@ -46,7 +46,7 @@ t_stack_ps	*locate_the_node(t_stack_ps **stack, int i)
 	t_stack_ps	*temp_head;
 	int			increment;
 
-	increment = 1;
+	increment = 0;
 	temp_head = (*stack);
 	while (increment < i)
 	{
@@ -54,4 +54,20 @@ t_stack_ps	*locate_the_node(t_stack_ps **stack, int i)
 		increment++;
 	}
 	return (temp_head);
+}
+
+int	max(int *arr, int index)
+{
+	int	i;
+	int	max;
+
+	i = 0;
+	max = 0;
+	while (i < index)
+	{
+		if (arr[i] > max)
+			max = arr[i];
+		i++;
+	}
+	return (max);
 }
