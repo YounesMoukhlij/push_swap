@@ -6,7 +6,7 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 11:26:39 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/06 19:10:09 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/07 22:30:36 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ void	fill_moves(t_stack_ps **stack)
 	int			size;
 
 	size = size_linked_list(*stack);
+	fill_out_stack_position(stack);
 	tmp_head = (*stack);
 	while (tmp_head)
 	{

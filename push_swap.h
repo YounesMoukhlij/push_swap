@@ -6,7 +6,7 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 10:14:12 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/06 21:07:50 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/07 21:44:22 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ int			check_stack(t_stack_ps **stack_a);
 void		fill_out_stack_b(t_stack_ps **stack_a, t_stack_ps **stack_b);
 t_stack_ps	*find_target(t_stack_ps **stack_a, int content);
 void		set_connection_a_b(t_stack_ps **stack_a, t_stack_ps **stack_b);
+int		gest_best_move(t_stack_ps **stack_b, t_stack_ps **stack_a);
+void		check_best_move(t_stack_ps **stack_b, t_stack_ps **stack_a, int b_m);
 // ********** MOVES **********
 // Rotate Moves
 void		rotate_move(t_stack_ps	**the_stack);

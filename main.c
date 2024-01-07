@@ -6,7 +6,7 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 10:13:41 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/06 20:13:18 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/07 22:05:21 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,16 @@ int	main(int ac, char **av)
 	}
 	ft_free_memory(string_arg);
 	printf("\n\n\n\n\n");
-	printf("\033[32m\nAFFICHAGe A\n\033[0m");
+	printf("\033[32m\n >>> AFFICHAGe A\n\033[0m");
 	while (stack_a)
 	{
-		printf("n-[%d]-p-[%p]-index-[%d]-flag-[%d]-ads-[%d]-moves-[%d] \n", stack_a->nbr, &(stack_a->nbr), stack_a->positon, stack_a->index_in_stack, stack_a->flag, stack_a->moves);
+		printf("n-[%d]-p-[%d]-index-[%d]-flag-[%d]-moves-[%d]\n", stack_a->nbr,  stack_a->positon, stack_a->index_in_stack, stack_a->flag, stack_a->moves );
 		stack_a = stack_a->next;
 	}
-	printf("\033[32m\nAFFICHAGe B\n\033[0m");
+	printf("\033[32m\n >>> AFFICHAGe B\n\033[0m");
 	while (stack_b)
 	{
-		printf("n-[%d]-p-[%d]-index-[%d]-flag-[%d]-ads-[%d]-moves-[%d] \n", stack_b->nbr, stack_b->positon, stack_b->index_in_stack, stack_b->flag, stack_b->target_node->nbr, stack_b->moves);
+		printf("n-[%d]-p-[%d]-index-[%d]-flag-[%d]-mate-[%d]-moves-[%d]\n", stack_b->nbr, stack_b->positon, stack_b->index_in_stack, stack_b->flag, stack_b->target_node->nbr, stack_b->moves);
 		stack_b = stack_b->next;
 	}
 	//clear_stack_linked_list(&stack_a);
