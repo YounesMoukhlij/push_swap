@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_simple_five.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: younesmoukhlij <younesmoukhlij@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 20:45:35 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/07 17:59:43 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/08 00:45:13 by younesmoukh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ void	get_0_back_to_index(t_stack_ps **stack_a, t_stack_ps **stack_b)
 	while ((*stack_a))
 	{
 		(*stack_a)->index_in_stack = 0;
-		(*stack_a) = (*stack_a)->next;		
+		(*stack_a) = (*stack_a)->next;
 	}
 	(*stack_a) = temp_head_a;
 	while ((*stack_b))
 	{
 		(*stack_b)->index_in_stack = 0;
-		(*stack_b) = (*stack_b)->next;		
+		(*stack_b) = (*stack_b)->next;
 	}
 	(*stack_b) = temp_head_b;
 }

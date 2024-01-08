@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap_functions_3.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: younesmoukhlij <younesmoukhlij@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 11:26:39 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/07 22:30:36 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/08 00:09:21 by younesmoukh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,11 @@ int	check_stack(t_stack_ps **stack_a)
 
 void	fill_out_stack_b(t_stack_ps **stack_a, t_stack_ps **stack_b)
 {
-	t_stack_ps	*temp_head;
+	//t_stack_ps	*temp_head;
 	int			size;
 	int			pos;
 
-	temp_head = (*stack_a);
+	//temp_head = (*stack_a);
 	size = size_linked_list(*stack_a);
 	while (check_stack(stack_a) != -1)
 	{

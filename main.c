@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: younesmoukhlij <younesmoukhlij@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 10:13:41 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/07 22:05:21 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/08 01:58:43 by younesmoukh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,23 +35,23 @@ int	main(int ac, char **av)
 			sort_simple_three(ac, &stack_a);
 		else if (ac <= 6)
 			sort_simple_five(&stack_a, &stack_b);
-		else if (ac > 6)
+		 if (ac > 6)
 			sort_big_stacks(&stack_a, &stack_b);
 	}
 	ft_free_memory(string_arg);
-	printf("\n\n\n\n\n");
-	printf("\033[32m\n >>> AFFICHAGe A\n\033[0m");
-	while (stack_a)
-	{
-		printf("n-[%d]-p-[%d]-index-[%d]-flag-[%d]-moves-[%d]\n", stack_a->nbr,  stack_a->positon, stack_a->index_in_stack, stack_a->flag, stack_a->moves );
-		stack_a = stack_a->next;
-	}
-	printf("\033[32m\n >>> AFFICHAGe B\n\033[0m");
-	while (stack_b)
-	{
-		printf("n-[%d]-p-[%d]-index-[%d]-flag-[%d]-mate-[%d]-moves-[%d]\n", stack_b->nbr, stack_b->positon, stack_b->index_in_stack, stack_b->flag, stack_b->target_node->nbr, stack_b->moves);
-		stack_b = stack_b->next;
-	}
+	// printf("\n\n\n\n\n");
+	// printf("\033[32m\n >>> AFFICHAGe A\n\033[0m");
+	// while (stack_a)
+	// {
+	// 	printf("n-[%d]-p-[%d]\n", stack_a->nbr,  stack_a->positon);
+	// 	stack_a = stack_a->next;
+	// }
+	// printf("\033[32m\n >>> AFFICHAGe B\n\033[0m");
+	// while (stack_b != NULL)
+	// {
+	// 	printf("nbr-[%d]-pos-[%d]\n", stack_b->nbr, stack_b->positon);
+	// 	stack_b = stack_b->next;
+	// }
 	//clear_stack_linked_list(&stack_a);
 	// atexit(code);
 	return (0);

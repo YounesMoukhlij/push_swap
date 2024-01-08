@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap_functions_1.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: younesmoukhlij <younesmoukhlij@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 16:50:15 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/06 17:56:23 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/08 01:29:59 by younesmoukh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int	size_linked_list(t_stack_ps *stack_a)
 	t_stack_ps	*tmp;
 	int			i;
 
+	if (stack_a == NULL)
+		exit(1);
 	i = 0;
 	if (!stack_a)
 		return (0);
