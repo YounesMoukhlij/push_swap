@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   subsquence_algorithm.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: younesmoukhlij <younesmoukhlij@student.    +#+  +:+       +#+        */
+/*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 11:59:15 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/08 00:08:55 by younesmoukh      ###   ########.fr       */
+/*   Updated: 2024/01/06 19:23:18 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 void	flag_stack_a(t_stack_ps **stack_a, int *arr_1)
 {
+	int	i;
 	int	size;
 	int	max_num;
 
+	i = 0;
 	size = size_linked_list(*stack_a);
 	max_num = max(arr_1, size);
 	while (size >= 0)

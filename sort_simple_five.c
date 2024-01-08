@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_simple_five.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: younesmoukhlij <younesmoukhlij@student.    +#+  +:+       +#+        */
+/*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 20:45:35 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/08 00:45:13 by younesmoukh      ###   ########.fr       */
+/*   Updated: 2024/01/08 20:26:50 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	sort_simple_five(t_stack_ps **stack_a, t_stack_ps **stack_b)
 {
 	int			i;
 	int			j;
-	t_stack_ps 	*tmp_head;
+	t_stack_ps	*tmp_head;
 
 	tmp_head = (*stack_a);
 	if (size_linked_list((*stack_a)) == 4)
@@ -77,7 +77,7 @@ void	sort_simple_five(t_stack_ps **stack_a, t_stack_ps **stack_b)
 		while (tmp_head)
 		{
 			if (tmp_head->index_in_stack == 1)
-				j = tmp_head->positon;
+				j = tmp_head->position;
 			tmp_head = tmp_head->next;
 		}
 		while ((*stack_a)->index_in_stack != 1)

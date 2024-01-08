@@ -6,7 +6,7 @@
 #    By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/30 10:14:53 by youmoukh          #+#    #+#              #
-#    Updated: 2024/01/06 19:21:58 by youmoukh         ###   ########.fr        #
+#    Updated: 2024/01/08 17:25:42 by youmoukh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ SRC =	main.c    \
 		swap_move.c \
 		push_move.c	 \
 		ft_parsing.c  \
+		algo_cases.c  \
 		ft_strjoin.c   \
 		rotate_move.c   \
 		fill_out_stack.c \

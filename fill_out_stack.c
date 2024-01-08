@@ -6,7 +6,7 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 16:49:11 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/07 18:11:18 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/08 20:24:24 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	fill_out_stack_position(t_stack_ps **stack_a)
 	tmp_head = (*stack_a);
 	while (tmp_head)
 	{
-		tmp_head->positon = i++;
+		tmp_head->position = i++;
 		tmp_head = tmp_head->next;
 	}
 }

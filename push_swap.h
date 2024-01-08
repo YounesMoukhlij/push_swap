@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: younesmoukhlij <younesmoukhlij@student.    +#+  +:+       +#+        */
+/*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 10:14:12 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/08 00:45:38 by younesmoukh      ###   ########.fr       */
+/*   Updated: 2024/01/08 20:22:44 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_stack_ps
 {
 	int					nbr;
 	int					flag;
-	int					positon;
+	int					position;
 	int					index_in_stack;
 	struct s_stack_ps	*target_node;
 	struct s_stack_ps	*next;
@@ -41,7 +41,7 @@ int			max(int *arr, int index);
 char		**ft_parsing(int ac, char **av);
 void		*ft_free_memory(char **string);
 void		ft_error_mssg(void);
-
+// GENERAL
 void		fill_out_stack(char **string_arg, t_stack_ps **stack_a);
 t_stack_ps	*ft_beforelast(t_stack_ps *stack);
 t_stack_ps	*new_linked_list(int content);
@@ -60,15 +60,22 @@ int			check_stack(t_stack_ps **stack_a);
 void		fill_out_stack_b(t_stack_ps **stack_a, t_stack_ps **stack_b);
 t_stack_ps	*find_target(t_stack_ps **stack_a, int content);
 void		set_connection_a_b(t_stack_ps **stack_a, t_stack_ps **stack_b);
-int		gest_best_move(t_stack_ps **stack_b, t_stack_ps **stack_a);
-void		check_best_move(t_stack_ps **stack_b, t_stack_ps **stack_a, int b_m);
+t_stack_ps	*gest_best_move(t_stack_ps **stack_b);
+void		check_best_move(t_stack_ps **stack_b, t_stack_ps **stack_a);
+t_stack_ps	*find_minimum_move(int i, t_stack_ps **stack);
+t_stack_ps	*find_min_node(t_stack_ps **stack_a);
+// CASES
+void		case_1(t_stack_ps **s_b, t_stack_ps **s_a, t_stack_ps *b_n);
+void		case_2(t_stack_ps **s_b, t_stack_ps **s_a, t_stack_ps *b_n);
+void		case_3(t_stack_ps **s_b, t_stack_ps **s_a, t_stack_ps *b_n);
+void		case_4(t_stack_ps **s_b, t_stack_ps **s_a, t_stack_ps *b_n);
 // ********** MOVES **********
 // Rotate Moves
 void		rotate_move(t_stack_ps	**the_stack);
 void		rotate_a(t_stack_ps **stack_a);
 void		rotate_b(t_stack_ps **stack_b);
 void		rotate_stack_a_b(t_stack_ps **stack_a, t_stack_ps **stack_b);
-// REVERSE ROTATE
+// REVERSE ROTATE 
 void		reverse_rotate_a(t_stack_ps **stack_a);
 void		reverse_rotate_b(t_stack_ps **stack_b);
 void		reverse_rotate_a_b(t_stack_ps **stack_a, t_stack_ps **stack_b);
@@ -78,7 +85,7 @@ void		swap_stack_a_b(t_stack_ps **stack_a, t_stack_ps **stack_b);
 void		swap_a(t_stack_ps **stack_a);
 void		swap_b(t_stack_ps **stack_b);
 void		reverse_rotate_move(t_stack_ps	**the_stack);
-// SORT
+// SORT 
 void		sort_simple_three(int ac, t_stack_ps **stack_a);
 void		sort_big_stacks(t_stack_ps **stack_a, t_stack_ps **stack_b);
 int			*full_fill_arr_with_1(t_stack_ps **stack_a);
@@ -89,4 +96,5 @@ void		find_the_minimum_node(t_stack_ps **stack_a);
 // PUSH
 void		push_move_b(t_stack_ps **stack_a, t_stack_ps **stack_b);
 void		push_move_a(t_stack_ps **stack_a, t_stack_ps **stack_b);
+
 #endif

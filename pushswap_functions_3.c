@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap_functions_3.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: younesmoukhlij <younesmoukhlij@student.    +#+  +:+       +#+        */
+/*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 11:26:39 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/08 00:09:21 by younesmoukh      ###   ########.fr       */
+/*   Updated: 2024/01/08 20:22:59 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ int	*full_fill_arr_with_stack(t_stack_ps **stack_a)
 	arr = malloc(sizeof(int) * size);
 	if (!arr)
 		return (arr);
-	while ((*stack_a))
+	while (temp_head)
 	{
-		arr[i++] = (*stack_a)->nbr;
-		(*stack_a) = (*stack_a)->next;
+		arr[i++] = temp_head->nbr;
+		temp_head = temp_head->next;
 	}
-	(*stack_a) = temp_head;
+	free (temp_head);
 	return (arr);
 }
 
@@ -58,19 +58,18 @@ int	check_stack(t_stack_ps **stack_a)
 	while (temp_head)
 	{
 		if (temp_head->flag == 0)
-			return (temp_head->positon);
+			return (temp_head->position);
 		temp_head = temp_head->next;
 	}
+	free (temp_head);
 	return (-1);
 }
 
 void	fill_out_stack_b(t_stack_ps **stack_a, t_stack_ps **stack_b)
 {
-	//t_stack_ps	*temp_head;
 	int			size;
 	int			pos;
 
-	//temp_head = (*stack_a);
 	size = size_linked_list(*stack_a);
 	while (check_stack(stack_a) != -1)
 	{
@@ -102,10 +101,11 @@ void	fill_moves(t_stack_ps **stack)
 	tmp_head = (*stack);
 	while (tmp_head)
 	{
-		if (tmp_head->positon <= (size / 2))
-			tmp_head->moves = tmp_head->positon;
-		else if (tmp_head->positon >= (size / 2))
-			tmp_head->moves = size - (tmp_head->positon);
+		if (tmp_head->position <= (size / 2))
+			tmp_head->moves = tmp_head->position;
+		else if (tmp_head->position >= (size / 2))
+			tmp_head->moves = size - (tmp_head->position);
 		tmp_head = tmp_head->next;
 	}
+	free (tmp_head);
 }
