@@ -6,7 +6,7 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 11:26:39 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/08 20:22:59 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/09 14:25:04 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,34 +61,34 @@ int	check_stack(t_stack_ps **stack_a)
 			return (temp_head->position);
 		temp_head = temp_head->next;
 	}
-	free (temp_head);
 	return (-1);
 }
 
 void	fill_out_stack_b(t_stack_ps **stack_a, t_stack_ps **stack_b)
 {
 	int			size;
-	int			pos;
+	int			index;
 
-	size = size_linked_list(*stack_a);
-	while (check_stack(stack_a) != -1)
+	index = 1;
+	while (1337)
 	{
-		pos = check_stack(stack_a);
-		if (pos > (size / 2))
+		size = size_linked_list(*stack_a);
+		index = check_stack(stack_a);
+		if (index == -1)
+			break ;
+		if (index > (size / 2))
 		{
 			while ((*stack_a)->flag != 0)
 				reverse_rotate_a(stack_a);
+			push_move_b(stack_a, stack_b);
 		}
 		else
 		{
 			while ((*stack_a)->flag != 0)
 				rotate_a(stack_a);
+			push_move_b(stack_a, stack_b);
 		}
-		fill_out_stack_position(stack_a);
-		push_move_b(stack_a, stack_b);
 	}
-	fill_out_stack_position(stack_a);
-	fill_out_stack_position(stack_b);
 }
 
 void	fill_moves(t_stack_ps **stack)
@@ -97,7 +97,6 @@ void	fill_moves(t_stack_ps **stack)
 	int			size;
 
 	size = size_linked_list(*stack);
-	fill_out_stack_position(stack);
 	tmp_head = (*stack);
 	while (tmp_head)
 	{

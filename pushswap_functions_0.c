@@ -6,7 +6,7 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 10:14:38 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/08 19:45:25 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/09 17:55:42 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ long	ft_atoi(char *s)
 	while (*s && (*s >= '0' && *s <= '9'))
 	{
 		resulat = resulat * 10 + (*s - '0');
+		if ((resulat * num_signe) > INT_MAX || (resulat * num_signe) < INT_MIN)
+			ft_error_mssg();
 		s++;
 	}
 	return (resulat * num_signe);
@@ -71,14 +73,12 @@ void	clear_stack_linked_list(t_stack_ps **stack_a)
 {
 	t_stack_ps	*current;
 
-	if (!*stack_a)
-		return ;
 	current = *stack_a;
-	while (stack_a)
+	while (*stack_a)
 	{
 		current = (*stack_a)->next;
-		free(*stack_a);
+		free (stack_a);
 		*stack_a = current;
 	}
-	stack_a = NULL;
+	//stack_a = NULL;
 }
