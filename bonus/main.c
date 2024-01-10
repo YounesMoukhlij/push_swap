@@ -3,63 +3,64 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: younesmoukhlij <younesmoukhlij@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 10:13:41 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/10 21:21:38 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/11 00:36:19 by younesmoukh      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
+#include <stdio.h>
 
 void	code(void)
 {
 	system("leaks a.out");
 }
+char *full_fill_str(char *str)
+{
+	char	*s;
+	int		i;
 
-// void	__check_op(char *op)
-// {
-// 	if (strcmp(op, "sa\n") && strcmp(op, "sb\n") && strcmp(op, "ss\n") && strcmp(op, "pa\n")
-// 		&& strcmp(op, "pb\n") && strcmp(op, "ra\n")
-// 		&& strcmp(op, "rb\n") && strcmp(op, "rr\n")
-// 		&& strcmp(op, "rra\n") && strcmp(op, "rrb\n")
-// 		&& strcmp(op, "rrr\n"))
-// 	{
-// 		exit(write(1, "Error\n", 7));
-// 	}
-// }
+	i = ft_strlen(str);
+	s = malloc(i + 1);
+	if (!s)
+		return (free (s), NULL);
+	i = 0;
+	while (str[i])
+	{
+		s[i] = str[i];
+		i++;
+	}
+	s[i] = '\0';
+	return (s);
+}
 
 int	main(int ac, char **av)
 {
 	char		**string_arg;
-	char		**str_instrcutions;
-	char		*read_from_stdin;
+	char	*str;
+	static char	*s;
 	t_stack_ps	*stack_a;
 	t_stack_ps	*stack_b;
 
-	stack_b = NULL;
-	stack_a = NULL;
 	if (ac == 1)
 		exit(1);
 	string_arg = ft_parsing(ac, av);
 	fill_out_stack(string_arg, &stack_a);
-	while (1337)
+	str = get_next_line(0);
+	while (str)
 	{
-		read_from_stdin = get_next_line(0);
-		ft_str_join(str_instrcutions, read_from_stdin);
-		check_entred_moves(read_from_stdin, &stack_a, &stack_b);
-		if (!read_from_stdin)
-			break ;
+		str = get_next_line(0);
+		s = full_fill_str(str);
 	}
-	// while (read_from_stdin)
-	// 	read_from_s = get_next_line(0);
-	// str_instrcutions = fill_out_instructions(read_from_stdin);
+	check_entred_moves(s, &stack_a, &stack_b);
+	// printf("%s", s);
 	if (check_is_sorted(stack_a))
-		write(1, "OK\n", 3);
-	else
 		write(1, "KO\n", 3);
-	clear_stack_linked_list(&stack_a);
-	ft_free_memory(string_arg);
-	// atexit (code);
+	else
+		write(1, "OK\n", 3);
+	// clear_stack_linked_list(&stack_a);
+	// ft_free_memory(string_arg);
 	return (0);
 }
