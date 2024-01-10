@@ -6,11 +6,11 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 10:15:34 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/10 12:05:18 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/10 19:33:09 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 int	check_if_doubles(char **s)
 {

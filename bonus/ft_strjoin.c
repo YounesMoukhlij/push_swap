@@ -6,11 +6,11 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 20:53:58 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/10 12:13:52 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/10 19:33:18 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 char	*copy_to_string(int ac, char *new, char *old, int *position)
 {
