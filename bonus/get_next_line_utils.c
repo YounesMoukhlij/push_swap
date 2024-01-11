@@ -6,7 +6,7 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 10:41:52 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/10 20:58:10 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/11 22:39:50 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,25 @@ char	*ft_str_join(char *s1, char *s2)
 		r[i++] = s2[j++];
 	r[i] = '\0';
 	free (s1);
+	free (s2);
 	return (r);
+}
+
+void	ft_free(char **str, t_stack_ps **s_a, char **s, t_stack_ps **s_b)
+{
+	ft_free_memory(str);
+	ft_free_memory(s);
+	clear_stack_linked_list(s_a);
+	clear_stack_linked_list(s_b);
+}
+
+void	finish_st(char **str, t_stack_ps **s_a, char **s, t_stack_ps **s_b)
+{
+	//printf("size a   %d\n", size_linked_list(s_a));
+	if (check_is_sorted(*s_a) && (s_b) == NULL)
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
+	ft_free(str, s_a, s, s_b);
+	//clear_stack_linked_list(s_b);
 }

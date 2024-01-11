@@ -6,7 +6,7 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 10:15:34 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/10 19:33:09 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/11 17:48:44 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ char	**ft_parsing(int ac, char **av)
 			i++;
 		}
 		old_str = ft_strjoin(ac, av + 1);
-		string_arg = ft_split(old_str);
+		string_arg = ft_split(old_str, ' ');
 		free (old_str);
 		if (ft_arguments_check(string_arg) == 0)
 			ft_error_mssg();

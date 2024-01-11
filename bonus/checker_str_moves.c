@@ -6,49 +6,44 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 15:28:16 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/10 21:13:15 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/11 22:23:28 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-void	check_entred_moves(char *move, t_stack_ps **stack_a, t_stack_ps **stack_b)
+void	check_entred_moves(char **move, t_stack_ps **s_a, t_stack_ps **s_b)
 {
-	if (check_entred_string(move, "sa\n"))
-		swap_a(stack_a);
-	else if (check_entred_string(move, "sb\n"))
-		swap_b(stack_b);
-	else if (check_entred_string(move, "ss\n"))
-		swap_stack_a_b(stack_a, stack_b);
-	else if (check_entred_string(move, "ra\n"))
-		rotate_a(stack_a);
-	else if (check_entred_string(move, "rb\n"))
-		rotate_b(stack_b);
-	else if (check_entred_string(move, "rr\n"))
-		rotate_stack_a_b(stack_a, stack_b);
-	else if (check_entred_string(move, "rra\n"))
-		reverse_rotate_a(stack_a);
-	else if (check_entred_string(move, "rrb\n"))
-		reverse_rotate_b(stack_b);
-	else if (check_entred_string(move, "rrr\n"))
-		reverse_rotate_a_b(stack_a, stack_b);
-	else if (check_entred_string(move, "pb\n"))
-		push_move_b(stack_a, stack_b);
-	else if (check_entred_string(move, "pa\n"))
-		push_move_b(stack_a, stack_b);
-}
+	int			i;
 
-int	check_entred_string(char *move, char *entred_move)
-{
-	int	i;
-
+	s_b = NULL;
 	i = 0;
-	while (move[i] || entred_move[i])
+	while (move[i])
 	{
-		if (move[i] != entred_move[i])
-			return (0);
+		if (ft_strcmp(move[i], "sa") == 1)
+			swap_a(s_a);
+		else if (ft_strcmp(move[i], "sb") == 1)
+			swap_b(s_b);
+		else if (ft_strcmp(move[i], "ss") == 1)
+			swap_stack_a_b(s_a, s_b);
+		else if (ft_strcmp(move[i], "ra") == 1)
+			rotate_a(s_a);
+		else if (ft_strcmp(move[i], "rb") == 1)
+			rotate_b(s_b);
+		else if (ft_strcmp(move[i], "rr") == 1)
+			rotate_stack_a_b(s_a, s_b);
+		else if (ft_strcmp(move[i], "rra") == 1)
+			reverse_rotate_a(s_a);
+		else if (ft_strcmp(move[i], "rrb") == 1)
+			reverse_rotate_b(s_b);
+		else if (ft_strcmp(move[i], "rrr") == 1)
+			reverse_rotate_a_b(s_a, s_b);
+		else if (ft_strcmp(move[i], "pb") == 1)
+			push_move_b(s_a, s_b);
+		else if (ft_strcmp(move[i], "pa") == 1)
+			push_move_b(s_a, s_b);
+		i++;
 	}
-	return (1);
 }
 
 t_stack_ps	*ft_beforelast(t_stack_ps *stack)

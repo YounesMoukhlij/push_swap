@@ -6,7 +6,7 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 20:51:18 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/10 19:34:21 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/11 20:08:07 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	swap_move(t_stack_ps **the_stack)
 {
 	t_stack_ps	*temp_stack;
 
+	if (!(*the_stack) || !the_stack)
+		return ;
 	temp_stack = (*the_stack)->next;
 	(*the_stack)->next = (*the_stack)->next->next;
 	temp_stack->next = (*the_stack);
@@ -24,13 +26,15 @@ void	swap_move(t_stack_ps **the_stack)
 
 void	swap_a(t_stack_ps **stack_a)
 {
-	write(1, "sa\n", 3);
+	if (!(*stack_a) || !stack_a)
+		return ;
 	swap_move(stack_a);
 }
 
 void	swap_b(t_stack_ps **stack_b)
 {
-	write(1, "sb\n", 3);
+	if (!(*stack_b) || !stack_b)
+		return ;
 	swap_move(stack_b);
 }
 
@@ -38,5 +42,4 @@ void	swap_stack_a_b(t_stack_ps **stack_a, t_stack_ps **stack_b)
 {
 	swap_move(stack_b);
 	swap_move(stack_a);
-	write(1, "ss\n", 3);
 }

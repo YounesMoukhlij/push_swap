@@ -6,7 +6,7 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 14:34:22 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/10 19:34:48 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/11 13:54:08 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	push_move_b(t_stack_ps **stack_a, t_stack_ps **stack_b)
 	tmp_stack = (*stack_a);
 	(*stack_a) = (*stack_a)->next;
 	add_front_linked_list(stack_b, tmp_stack);
-	write(1, "pb\n", 3);
 }
 
 void	push_move_a(t_stack_ps **stack_a, t_stack_ps **stack_b)
@@ -33,5 +32,4 @@ void	push_move_a(t_stack_ps **stack_a, t_stack_ps **stack_b)
 	tmp_stack = *stack_b;
 	*stack_b = (*stack_b)->next;
 	add_front_linked_list(stack_a, tmp_stack);
-	write(1, "pa\n", 3);
 }

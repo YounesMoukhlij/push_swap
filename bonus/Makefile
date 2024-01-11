@@ -6,7 +6,7 @@
 #    By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/10 19:15:01 by youmoukh          #+#    #+#              #
-#    Updated: 2024/01/10 20:17:12 by youmoukh         ###   ########.fr        #
+#    Updated: 2024/01/11 21:42:04 by youmoukh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,11 +24,13 @@ SRC =	main.c    \
 		get_next_line_utils.c \
 		pushswap_functions_0.c \
 		pushswap_functions_1.c  \
+		pushswap_functions_2.c  \
 
 OBJ =	${SRC:.c=.o}
 NAME =	checker
 CFLAGS = -Wall -Wextra -Werror
 Header = push_swap_bonus.h
+
 all: $(NAME)
 
 %.o : %.c ${Header}
@@ -45,6 +47,8 @@ clean :
 fclean : clean
 	@rm -rf $(NAME)
 	@echo "\033[34m >>>> [F-cleaned Successfully]\033[0m"
+
+e : all clean
 
 re : fclean all
 

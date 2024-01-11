@@ -6,7 +6,7 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 16:49:11 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/10 19:33:13 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/11 20:35:43 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,10 @@ void	fill_out_stack(char **string_arg, t_stack_ps **stack_a)
 		else
 			add_back_linked_list(current, stack_a);
 		i++;
+	}
+	if (check_is_sorted(*stack_a))
+	{
+		write(1, "OK\n", 3);
+		exit(0);
 	}
 }

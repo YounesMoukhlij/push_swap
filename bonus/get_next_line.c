@@ -6,7 +6,7 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:56:15 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/10 20:57:42 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/11 20:04:58 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ static char	*ft_read_from_fd(char *str, int fd, int indice)
 		str = ft_str_join(str, my_buffer);
 		if (!str)
 			return (free(my_buffer), NULL);
-		free(my_buffer);
 	}
 	if (!ft_strlen(str))
 		return (free(str), NULL);
