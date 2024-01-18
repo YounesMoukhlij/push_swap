@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 10:13:41 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/13 14:56:14 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/17 11:26:59 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int ac, char **av)
 
 	if (ac == 1)
 		return (0);
-	string_arg = ft_parsing(ac, av);
+	string_arg = ft_parsing_1(ac, av);
 	fill_out_stack(string_arg, &s_a);
 	str = main_helper();
 	if (!str)

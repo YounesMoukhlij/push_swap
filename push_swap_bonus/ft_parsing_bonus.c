@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parsing.c                                       :+:      :+:    :+:   */
+/*   ft_parsing_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 10:15:34 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/11 17:48:44 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/16 21:46:12 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,20 @@ int	ft_check_emptiness(char *s)
 
 int	ft_check_numbers(char *s)
 {
-	int	i;
+	int		i;
 
 	i = 0;
+	if (s[0] == '\0')
+		return (0);
+	if (ft_atoi(s) > 2147483647 || ft_atoi(s) < -2147483648)
+		return (0);
 	if ((s[0] == '-' || s[0] == '+') && s[1] == '\0')
 		return (0);
-	if (ft_atoi(s) > INT_MAX || ft_atoi(s) < INT_MIN)
-		return (0);
+	if (s[i] == '-' || s[i] == '+')
+		i++;
 	while (s[i])
 	{
-		if (i == 0 && (s[i] == '-' || s[i] == '+'))
-			i++;
-		if (!(s[i] >= '0' && s[i] <= '9'))
+		if (s[i] < 48 || s[i] > 57)
 			return (0);
 		i++;
 	}
@@ -82,7 +84,7 @@ int	ft_arguments_check(char **s)
 	return (1);
 }
 
-char	**ft_parsing(int ac, char **av)
+char	**ft_parsing_1(int ac, char **av)
 {
 	char	**string_arg;
 	char	*old_str;
@@ -92,7 +94,7 @@ char	**ft_parsing(int ac, char **av)
 	string_arg = NULL;
 	if (ac < 2)
 		ft_error_mssg();
-	if (ac >= 2)
+	if (ac > 1)
 	{
 		while (i <= ac - 1)
 		{
@@ -100,7 +102,7 @@ char	**ft_parsing(int ac, char **av)
 				ft_error_mssg();
 			i++;
 		}
-		old_str = ft_strjoin(ac, av + 1);
+		old_str = ft_strjoin(ac, av);
 		string_arg = ft_split(old_str, ' ');
 		free (old_str);
 		if (ft_arguments_check(string_arg) == 0)

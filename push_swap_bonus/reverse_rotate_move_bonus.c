@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate_move.c                              :+:      :+:    :+:   */
+/*   reverse_rotate_move_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 20:51:12 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/12 15:22:39 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/16 22:10:57 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	reverse_rotate_move(t_stack_ps	**the_stack)
 	t_stack_ps	*tmp_head;
 
 	if (!the_stack || !*the_stack)
+		return ;
+	if (size_linked_list(the_stack) == 1)
 		return ;
 	tmp_head = last_one_linked_list(*the_stack);
 	ft_beforelast(*the_stack)->next = NULL;

@@ -6,7 +6,7 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 10:15:21 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/11 12:14:58 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/16 21:08:12 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	count_strings(char *s)
 	{
 		while (*s && *s == ' ')
 			s++;
-		if (*s)
+		if (*s != '\0')
 			i++;
 		while (*s && *s != ' ')
 			s++;
@@ -67,8 +67,9 @@ char	**ft_split(char *s)
 		if (*s != '\0')
 		{
 			res[i] = ft_create_word(s);
-			if (res[i++] == NULL)
+			if (res[i] == NULL)
 				ft_free_memory(res);
+			i++;
 		}
 		while (*s && *s != ' ')
 			s++;

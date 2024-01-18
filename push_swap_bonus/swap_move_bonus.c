@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_move.c                                        :+:      :+:    :+:   */
+/*   swap_move_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 20:51:18 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/12 15:23:00 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/17 11:03:53 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	swap_move(t_stack_ps **the_stack)
 	t_stack_ps	*temp_stack;
 
 	if (!(*the_stack) || !the_stack)
+		return ;
+	if (size_linked_list(the_stack) == 1)
 		return ;
 	temp_stack = (*the_stack)->next;
 	(*the_stack)->next = (*the_stack)->next->next;
@@ -36,6 +38,6 @@ void	swap_b(t_stack_ps **stack_b)
 
 void	swap_stack_a_b(t_stack_ps **stack_a, t_stack_ps **stack_b)
 {
-	swap_move(stack_b);
 	swap_move(stack_a);
+	swap_move(stack_b);
 }

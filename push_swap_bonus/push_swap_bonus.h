@@ -6,7 +6,7 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:22:15 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/13 14:54:21 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/17 11:13:26 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void		ft_error_mssg(void);
 char		*get_next_line(int fd);
 int			main(int ac, char **av);
 int			is_valid_move(char **str);
-void		is_valid_before(char *str);
 int			is_valid_move(char **str);
+void		is_valid_before(char *str);
 int			ft_lookfor_newline(char *s);
 void		swap_a(t_stack_ps **stack_a);
 void		swap_b(t_stack_ps **stack_b);
@@ -48,7 +48,7 @@ void		rotate_a(t_stack_ps **stack_a);
 void		*ft_free_memory(char **string);
 void		rotate_b(t_stack_ps **stack_b);
 t_stack_ps	*stack_is_sorted(t_stack_ps *a);
-char		**ft_parsing(int ac, char **av);
+char		**ft_parsing_1(int ac, char **av);
 char		*ft_str_join(char *s1, char *s2);
 char		*ft_str_join(char *s1, char *s2);
 t_stack_ps	*ft_beforelast(t_stack_ps *stack);

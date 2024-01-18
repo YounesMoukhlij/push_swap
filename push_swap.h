@@ -6,7 +6,7 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 10:14:12 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/13 17:00:15 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/17 11:13:03 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,4 @@ void		reverse_rotate_a_b(t_stack_ps **stack_a, t_stack_ps **stack_b);
 void		add_back_linked_list(t_stack_ps *current, t_stack_ps **stack_a);
 void		subsquence_algo(t_stack_ps **stack, int *arr_1, int *arr_stack);
 void		add_front_linked_list(t_stack_ps **stack_a, t_stack_ps *current);
-
 #endif

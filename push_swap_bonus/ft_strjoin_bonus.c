@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 20:53:58 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/13 13:54:34 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/17 11:13:36 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*copy_to_string(int ac, char *new, char *old, int *position)
 		new[len + i] = old[i];
 		i++;
 	}
-	if (*position < ac - 2)
+	if (*position <= ac - 2)
 	{
 		new[len + i] = ' ';
 		i++;
@@ -40,10 +40,10 @@ int	get_len_for_strjoin(char **string, int ac)
 
 	i = 1;
 	l = 0;
-	while (i <= ac)
+	while (i <= ac - 1)
 	{
 		l += ft_strlen(string[i]);
-		if (i < ac - 1)
+		if (i <= ac - 2)
 			l += 1;
 		i++;
 	}
@@ -55,12 +55,12 @@ char	*ft_strjoin(int ac, char **av)
 	char	*new_str;
 	int		i;
 
-	i = 0;
-	new_str = malloc(sizeof(char) * get_len_for_strjoin(av + 1, ac - 1) + 1);
+	i = 1;
+	new_str = malloc(sizeof(char) * get_len_for_strjoin(av, ac) + 1);
 	if (!new_str)
 		return (free(new_str), NULL);
 	new_str[i] = '\0';
-	while (i < ac - 1)
+	while (i <= ac - 1)
 	{
 		copy_to_string(ac, new_str, av[i], &i);
 		i++;

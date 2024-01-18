@@ -6,7 +6,7 @@
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 20:51:15 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/08 12:40:12 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/16 22:18:25 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	rotate_move(t_stack_ps	**the_stack)
 	t_stack_ps	*last_node;
 
 	if (!the_stack || !*the_stack)
+		return ;
+	if (size_linked_list(*the_stack) == 1)
 		return ;
 	temp_head_1 = (*the_stack)->next;
 	last_node = last_one_linked_list(*the_stack);

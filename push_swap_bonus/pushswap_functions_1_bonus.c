@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap_functions_1.c                             :+:      :+:    :+:   */
+/*   pushswap_functions_1_bonus.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youmoukh <youmoukh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 16:50:15 by youmoukh          #+#    #+#             */
-/*   Updated: 2024/01/12 15:32:50 by youmoukh         ###   ########.fr       */
+/*   Updated: 2024/01/16 19:48:03 by youmoukh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	size_linked_list(t_stack_ps **stack_a)
 	int			i;
 
 	i = 0;
-	tmp = (*stack_a);
+	tmp = *stack_a;
 	while (tmp)
 	{
 		tmp = tmp->next;
