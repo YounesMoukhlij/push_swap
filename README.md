@@ -4,7 +4,7 @@
 
 <p align="center">
 	<b><i>Development repo for 42cursus' push_swap project</i></b><br>
-	For further information about 42cursus and its projects, please refer to <a href="https://github.com/younesmoukhlij"><b>42cursus repo</b></a>.
+	For further information about 42cursus and its projects, please check <a href="https://github.com/younesmoukhlij"><b>My Profile</b></a>.
 </p>
 
 
