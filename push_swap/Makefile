@@ -46,21 +46,16 @@ all: $(NAME)
 %.o: %.c ${mendatory_header}
 	cc ${CFLAGS} -c $< -o $@
 
-bonus :
-	@${MAKE} -C ${bonus_file}
-
 $(NAME): $(OBJ) ${mendatory_header}
 	cc $(OBJ) -o $(NAME)
 	@echo "\033[32mRRRRRREADY !!!!\033[1;91m\t[*_!]\033[0m"
 
 clean :
 	@rm -rf $(OBJ)
-	@${MAKE} clean -C ${bonus_file}
 	@echo "\033[32m >>>> [Cleaned   Successfully]\033[0m"
 
 fclean : clean
 	@rm -rf $(NAME)
-	@${MAKE} fclean -C ${bonus_file}
 	@echo "\033[34m >>>> [F-cleaned Successfully]\033[0m"
 
 re : fclean all
